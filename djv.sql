@@ -1,6 +1,6 @@
 drop database if exists djv;
 create database djv;
-use database djv character set utf8;
+use djv character set utf8;
 
 create table vrtic(
     sifra int not null primary key auto_increment,
