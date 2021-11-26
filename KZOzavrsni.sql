@@ -5,18 +5,15 @@ use KZO;
 create table objekt(
     sifra int not null primary key auto_increment,
     adresa varchar(50),
-    kapacitet int ,
-    gosti int,
+    gost int,
     cijena decimal(18,2),
-    sobe int
+    soba int
 );
 
-create table gosti(
+create table gost(
     sifra int not null primary key auto_increment,
     osoba int not null,
-    email varchar(50),
-    datumprijave datetime,
-    datumodjave datetime
+    email varchar(50)
     
 );
 
@@ -27,11 +24,19 @@ create table osoba(
     oib char(11)
 );
 
-
-create table sobe(
+create table rezervacija(
     sifra int not null primary key auto_increment,
+    gost int not null,
+    cijena decimal(18,2),
+    datumprijave datetime,
+    datumodjave datetime 
+);
+
+
+create table soba(
+    sifra int not null primary key auto_increment,
+    naziv varchar(50),
     kapacitet int,
-    objekt int not null,
     cijena decimal(18,2)
 );
 
