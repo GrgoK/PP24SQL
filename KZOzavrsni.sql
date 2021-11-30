@@ -12,8 +12,7 @@ create table objekt(
 
 create table gost(
     sifra int not null primary key auto_increment,
-    osoba int not null,
-    rezervacija int not null
+    osoba int not null
     
 );
 
@@ -28,8 +27,9 @@ create table osoba(
 
 create table rezervacija(
     sifra int not null primary key auto_increment,
-    gost int not null,
     cijena decimal(18,2),
+    gost int not null,
+    soba int not null,
     datumprijave datetime,
     datumodjave datetime 
 );
@@ -39,14 +39,12 @@ create table soba(
     sifra int not null primary key auto_increment,
     naziv varchar(50),
     kapacitet int,
-    cijena decimal(18,2),
-    rezervacija int not null
+    cijena decimal(18,2)
 );
 
 alter table objekt add foreign key (gost) references gost(sifra);
 alter table gost add foreign key (osoba) references osoba(sifra);
 alter table objekt add foreign key (soba) references soba(sifra);
 
-alter table rezervacija add foreign key (gost) references gost(sifra);
-
-alter table soba add foreign key (rezervacija) references rezervacija(sifra);
+alter table rezervacija add foreign key (gost) references gost (sifra);
+alter table rezervacija add foreign key (soba) references soba(sifra);
