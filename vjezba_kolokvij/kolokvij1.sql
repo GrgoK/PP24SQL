@@ -94,6 +94,17 @@ alter table sestra_svekar add foreign key (svekar) references svekar(sifra);
 alter table sestra_svekar add foreign key (sestra) references sestra(sifra);
 
 --zadatak 1
+insert into sestra(sifra,introventno,haljina,maraka,hlace,narukvica) values
+(null,null,'plava haljina',null,'jeans',9);
+
+insert into svekar(sifra,bojaociju,prstena,dukserica,lipa,eura,majica) values
+(null,'zelene oci',null,null,null,null,null);
+
+insert into sestra_svekar(sifra,sestra,svekar) values 
+(null,2,5),
+(null,3,4),
+(null,1,8);
+
 
 insert into muskarac(sifra,bojaociju,hlace,modelnaocala,maraka,zena) values
 (null,'zelena',null,null,17.12,4),
@@ -105,10 +116,6 @@ insert into zena(sifra,treciputa,hlace,kratkamajica,jmbag,bojaociju,haljina,sest
 (null,null,null,'crna majica',99885493,'plava',null,3),
 (null,null,null,'zuta majica',97683993,'smedja',null,4);
 
-insert into sestra_svekar(sifra,sestra,svekar) values 
-(null,2,5),
-(null,3,4),
-(null,1,8);
 
 --zadatak 2
 
