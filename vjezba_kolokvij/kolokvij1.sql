@@ -97,6 +97,18 @@ alter table sestra_svekar add foreign key (sestra) references sestra(sifra);
 insert into sestra(sifra,introventno,haljina,maraka,hlace,narukvica) values
 (null,null,'plava haljina',null,'jeans',9);
 
+insert into zena(sifra,treciputa,hlace,kratkamajica,jmbag,bojaociju,haljina,sestra) values
+(null,null,null,'bijela majica',99883993,'zelena',null,1),
+(null,null,null,'crna majica',99885493,'plava',null,1),
+(null,null,null,'zuta majica',97683993,'smedja',null,1);
+
+insert into muskarac(sifra,bojaociju,hlace,modelnaocala,maraka,zena) values
+(null,'zelena',null,null,17.12,1),
+(null,'plava',null,null,19.12,2),
+(null,'smedja',null,null,21.12,3);
+
+
+
 insert into svekar(sifra,bojaociju,prstena,dukserica,lipa,eura,majica) values
 (null,'zelene oci',null,null,null,null,null);
 
@@ -104,15 +116,7 @@ insert into sestra_svekar(sifra,sestra,svekar) values
 (null,1,1);
 
 
-insert into muskarac(sifra,bojaociju,hlace,modelnaocala,maraka,zena) values
-(null,'zelena',null,null,17.12,1),
-(null,'plava',null,null,19.12,2),
-(null,'smedja',null,null,21.12,3);
 
-insert into zena(sifra,treciputa,hlace,kratkamajica,jmbag,bojaociju,haljina,sestra) values
-(null,null,null,'bijela majica',99883993,'zelena',null,1),
-(null,null,null,'crna majica',99885493,'plava',null,1),
-(null,null,null,'zuta majica',97683993,'smedja',null,1);
 
 
 --zadatak 2
@@ -129,6 +133,26 @@ delete from mladic where kuna > 15.78;
 select kratkamajica from zena where hlace like '%ana%';
 
 --zadatak 5 
+
+select a.dukserica, f.asocijalno, e.hlace
+from svekar a
+inner join sestra_svekar b on a.sifra=b.svekar
+inner join sestra c on b.sifra=c.sifra
+inner join zena d on c.sifra=d.sestra
+inner join muskarac e on d.sifra=e.zena
+inner join mladic f on e.sifra=f.muskarac
+where d.hlace like 'a%' and c.haljina like '%ba%'
+group by e.hlace desc;
+
+--zadatak 6
+
+select haljina, maraka 
+from sestra
+where sifra in(select distinct sestra from sestra_svekar);
+
+
+
+
 
 
 
