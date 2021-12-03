@@ -101,20 +101,18 @@ insert into svekar(sifra,bojaociju,prstena,dukserica,lipa,eura,majica) values
 (null,'zelene oci',null,null,null,null,null);
 
 insert into sestra_svekar(sifra,sestra,svekar) values 
-(null,2,5),
-(null,3,4),
-(null,1,8);
+(null,1,1);
 
 
 insert into muskarac(sifra,bojaociju,hlace,modelnaocala,maraka,zena) values
-(null,'zelena',null,null,17.12,4),
-(null,'plava',null,null,19.12,3),
-(null,'smedja',null,null,21.12,5);
+(null,'zelena',null,null,17.12,1),
+(null,'plava',null,null,19.12,2),
+(null,'smedja',null,null,21.12,3);
 
 insert into zena(sifra,treciputa,hlace,kratkamajica,jmbag,bojaociju,haljina,sestra) values
-(null,null,null,'bijela majica',99883993,'zelena',null,2),
-(null,null,null,'crna majica',99885493,'plava',null,3),
-(null,null,null,'zuta majica',97683993,'smedja',null,4);
+(null,null,null,'bijela majica',99883993,'zelena',null,1),
+(null,null,null,'crna majica',99885493,'plava',null,1),
+(null,null,null,'zuta majica',97683993,'smedja',null,1);
 
 
 --zadatak 2
