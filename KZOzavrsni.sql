@@ -48,3 +48,15 @@ alter table objekt add foreign key (soba) references soba(sifra);
 
 alter table rezervacija add foreign key (gost) references gost (sifra);
 alter table rezervacija add foreign key (soba) references soba(sifra);
+
+insert into gost(sifra,osoba)
+values(null,1);
+
+insert into osoba(sifra,ime,prezime,oib,email)
+values(null,'Marija','Marijanovic',23323123233,'marija.marijanovic@gmail.com');
+
+insert into soba(sifra,naziv,kapacitet,cijena)
+values(null,'Josipa',5,343.44);
+
+insert into objekt(sifra,adresa,gost,cijena,soba)
+values(null,'malencica',1,2342.99,2);
